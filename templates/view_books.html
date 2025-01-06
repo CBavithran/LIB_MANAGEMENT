@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ category }} Collection</h2>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>ISBN</th>
+        <th>Publication Year</th>
+        <th>Availability</th>
+    </tr>
+    {% for book in books %}
+    <tr>
+        <td>{{ book.Title }}</td>
+        <td>{{ book.Author }}</td>
+        <td>{{ book.ISBN }}</td>
+        <td>{{ book.PublicationYear }}</td>
+        <td>{{ 'Available' if book.Availability else 'Not Available' }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

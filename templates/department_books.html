@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Gate Books</title>
+    <style>
+        body {
+            background-image: url('https://images.pexels.com/photos/2908984/pexels-photo-2908984.jpeg'); /* Add your background image */
+            background-size: cover;
+            color: white;
+        }
+        .book-card {
+            margin: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">Department Books</h1>
+        <div class="row">
+            {% for book in books %}
+            <div class="col-md-4">
+                <div class="book-card">
+                    <h5>{{ book.Title }}</h5>
+                    <p><strong>Author:</strong> {{ book.Author }}</p>
+                    <p><strong>ISBN:</strong> {{ book.ISBN }}</p>
+                    <p><strong>Publication Year:</strong> {{ book.PublicationYear }}</p>
+                    <p><strong>Availability:</strong> {{ 'Available' if book.Availability else 'Not Available' }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
